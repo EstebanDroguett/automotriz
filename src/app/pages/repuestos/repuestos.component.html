@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row animated fadeIn">
-        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="card">
                 <div class="card-body">
                     <div class="md-form">
@@ -67,10 +67,14 @@
                                     <button (click)="borrarRepuesto( repuesto )" class="btn btn-danger button-circle">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
-                                    <button mdbBtn (click)="downloadPdf( repuesto )" class="btn btn-light button-circle" mdbWavesEffect>
+                                </td>
+                                <td>
+                                    <button mdbBtn (click)="downloadPdf( repuesto )" class="btn btn-light button-circle"
+                                        mdbWavesEffect>
                                         <mdb-icon far icon="file-pdf"></mdb-icon>
                                     </button>
-                                    <button mdbBtn (click)="downloadPdfgeneral( repuesto )" class="btn btn-light button-circle" mdbWavesEffect>
+                                    <button mdbBtn (click)="downloadPdfgeneral( repuesto )"
+                                        class="btn btn-light button-circle" mdbWavesEffect>
                                         <mdb-icon fas icon="file-pdf"></mdb-icon>
                                     </button>
                                 </td>
@@ -79,11 +83,13 @@
                         <tfoot class="grey lighten-5 w-100">
                             <tr>
                                 <td colspan="4">
-                                    <button mdbBtn (click)="cambiarDesde(-5)" class="btn waves-effect waves-light btn-light button-circle" mdbWavesEffect>
+                                    <button mdbBtn (click)="cambiarDesde(-5)"
+                                        class="btn waves-effect waves-light btn-light button-circle" mdbWavesEffect>
                                         <mdb-icon fas icon="arrow-circle-left"></mdb-icon>
                                         Anteriores
                                     </button>
-                                    <button mdbBtn (click)="cambiarDesde(5)" class="btn waves-effect waves-light btn-light button-circle" mdbWavesEffect>
+                                    <button mdbBtn (click)="cambiarDesde(5)"
+                                        class="btn waves-effect waves-light btn-light button-circle" mdbWavesEffect>
                                         Siguientes
                                         <mdb-icon fas icon="arrow-circle-right"></mdb-icon>
                                     </button>
