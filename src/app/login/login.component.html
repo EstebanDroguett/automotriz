@@ -1,0 +1,60 @@
+<!-- Main navigation -->
+<header>
+  <!-- Full Page Intro -->
+  <div class="view"
+    style="background-image: url('assets/image/automotriz.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
+      <!-- Content -->
+      <div class="container">
+        <!--Form-->
+        <form ngNativeValidate #f="ngForm" id="loginform" action="index.html" (ngSubmit)="ingresar( f )">
+          <mdb-card class="wow">
+            <mdb-card-body>
+              <!--Header-->
+              <div class="text-center">
+                <h3 class="white-text">
+                  <mdb-icon fas icon="car" class="white-text"></mdb-icon> Automotriz Demo
+                </h3>
+              </div>
+              <!--Body-->
+              <div class="md-form">
+                <mdb-icon fas icon="envelope" class="prefix white-text active"></mdb-icon>
+                <input [ngModel]="email" type="email" name="email" class="text-white form-control" mdbInput required>
+                <label for="form2" class="text-white">Correo Electrónico</label>
+              </div>
+              <div class="md-form">
+                <mdb-icon fas icon="lock" class="prefix text-white active"></mdb-icon>
+                <input ngModel type="password" name="password" class="text-white form-control" mdbInput required>
+                <label for="form4" class="text-white">Contraseña</label>
+              </div>
+              <div class="text-white text-center">
+                <label for="checkbox-signup"><input [(ngModel)]="recuerdame" name="recuerdame" id="checkbox-signup" type="checkbox"
+                  class=""> Recuerdame </label>
+              </div>
+              <div class="text-center mt-4">
+                <button mdbBtn color="white" type="submit" outline="true" mdbWavesEffect>Ingresar</button>
+                <div class="inline-ul text-center d-flex justify-content-center">
+                  <a class="p-2 m-2">
+                    <mdb-icon fab icon="google-plus" size="3x" class="white-text" type="button" id="btnGoogle" data-toggle="tooltip"
+                    title="Iniciar sesión con Google"></mdb-icon>
+                  </a>
+                </div>
+                <div class="text-white">
+                  <div class="text-center ">
+                      ¿No tienes cuenta? <a routerLink="/register" class="text-primary m-l-5"><b>Crear cuenta</b></a>
+                  </div>
+              </div>
+              </div>
+            </mdb-card-body>
+          </mdb-card>
+        </form>
+        <!--/.Form-->
+      </div>
+      <!-- Content -->
+    </div>
+    <!-- Mask & flexbox options-->
+  </div>
+  <!-- Full Page Intro -->
+</header>
+<!-- Main navigation -->

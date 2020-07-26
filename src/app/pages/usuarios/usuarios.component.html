@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row animated fadeIn">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="md-form">
+                        <input mdbInput #input (keyup)="buscarUsuario(input.value)" type="text" class="form-control" />
+                        <label for="search" class="">Buscar Usuario</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row animated fadeIn loading text-center" *ngIf="cargando">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div>
+                <strong>Cargando...</strong>
+            </div>
+        </div>
+    </div>
+    <div class="row animated fadeIn" *ngIf="!cargando">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="card">
+                <div class="card-body text-nowrap">
+                    <h4>Usuarios registrados <span class="badge badge-primary space">{{totalRegistros}}</span></h4>
+                    <br />
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Imagen</th>
+                                <th>Correo</th>
+                                <th>Nombre</th>
+                                <th>Rol</th>
+                                <th>Autentificación</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of usuarios; let i = index">
+                                <td>{{ i+1 }}</td>
+                                <td>
+                                    <img (click)="mostrarModal(usuario._id)" [src]="usuario.img | imagen"
+                                        class="img-50 img-circle pointer">
+                                </td>
+                                <td>{{ usuario.email }}</td>
+                                <td>{{ usuario.nombre }}</td>
+                                <td>
+                                    <select [(ngModel)]="usuario.role" name="role"
+                                        class="form-control custom-select">
+                                        <option value="ADMIN_ROLE">ADMINISTRADOR</option>
+                                        <option value="USER_ROLE">USUARIO</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <label *ngIf="usuario.google" class="label label-danger"><mdb-icon size="4x" class="red-text" fab icon="google-plus"></mdb-icon></label>
+                                    <label *ngIf="!usuario.google" class="label label-info"><mdb-icon size="4x" class="blue-text" fas icon="user-circle"></mdb-icon></label>
+                                </td>
+                                <td>
+                                    <button (click)="guardarUsuario(usuario)" class="btn btn-primary button-circle">
+                                        <i class="far fa-save"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button (click)="borrarUsuario(usuario)" class="btn btn-danger button-circle">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="grey lighten-5 w-100">
+                            <td colspan="4">
+                                <button mdbBtn (click)="cambiarDesde(-5)"
+                                    class="btn waves-effect waves-light btn-light button-circle" mdbWavesEffect>
+                                    <mdb-icon fas icon="arrow-circle-left"></mdb-icon>
+                                    Anteriores
+                                </button>
+                                <button mdbBtn (click)="cambiarDesde(5)"
+                                    class="btn waves-effect waves-light btn-light button-circle" mdbWavesEffect>
+                                    Siguientes
+                                    <mdb-icon fas icon="arrow-circle-right"></mdb-icon>
+                                </button>
+                            </td>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />

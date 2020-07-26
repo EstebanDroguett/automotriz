@@ -1,0 +1,62 @@
+<div class="container">
+<div class="row animated fadeIn">
+    <div class="col-lg-6">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Propietario: {{ vehiculo.propietario }}</h3>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarVehiculo(f)">
+                        <div class="md-form">
+                            <input mdbInput [(ngModel)]="vehiculo.propietario" name="propietario" type="text"
+                                class="form-control" required />
+                            <label for="nombre" class="">Nombre del Propietario</label>
+                        </div>
+                        <div class="md-form">
+                            <input mdbInput [(ngModel)]="vehiculo.correo" name="correo" type="email"
+                                class="form-control" required />
+                            <label for="nombre" class="">Correo Electrónico</label>
+                        </div>
+                        <div class="md-form">
+                            <input mdbInput [(ngModel)]="vehiculo.telefono" name="telefono" type="number"
+                                class="form-control" required />
+                            <label for="nombre" class="">Teléfono</label>
+                        </div>
+                        <div class="md-form">
+                            <input mdbInput [(ngModel)]="vehiculo.patente" name="patente" type="text"
+                                class="form-control" required />
+                            <label for="nombre" class="">Patente</label>
+                        </div>
+                        <div class="md-form">
+                            <input mdbInput [(ngModel)]="vehiculo.vehiculo" name="vehiculo" type="text"
+                                class="form-control" required />
+                            <label for="nombre" class="">Vehículo</label>
+                        </div>
+                        <div class="md-form">
+                            <input mdbInput [(ngModel)]="vehiculo.color" name="color" type="text"
+                                class="form-control" required />
+                            <label for="nombre" class="">Color</label>
+                        </div>
+                        <!--<div class="md-form">
+                            <input mdbInput [(ngModel)]="vehiculo.cantidad_de_puertas" name="cantidad_de_puertas" type="number"
+                                class="form-control" required />
+                            <label for="nombre" class="">Cantidad de Puertas</label>
+                        </div>-->
+                        <button mdbBtn type="submit" class="btn btn-success button-circle" mdbWavesEffect>
+                            <i class="far fa-save"></i>
+                            Guardar
+                        </button>
+                        <a mdbBtn routerLink="/vehiculos" class="btn btn-light button-circle" mdbWavesEffect><mdb-icon fas icon="arrow-circle-left"></mdb-icon> Volver</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3" *ngIf="vehiculo._id">
+        <div class="card card-body">
+            <h4 class="box-title m-b-0">Vehículo</h4>
+            <img (click)="cambiarFoto()" [src]="vehiculo.img | imagen:'vehiculo'" class="circle-img position pointer">
+        </div>
+    </div>
+</div>
+</div>
+<br />

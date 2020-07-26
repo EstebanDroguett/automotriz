@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <!--<div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Usuarios</h5>
+                    <table class="table table-hover" *ngIf="usuarios.length > 0">
+                        <tbody *ngFor="let usuario of usuarios">
+                            <tr>
+                                <td class="w70"><img [src]="usuario.img | imagen" class="img-50 img-circle">
+                                </td>
+                                <td>{{ usuario.nombre }}</td>
+                                <td><button routerLink="/usuarios" class="btn btn-primary"><i
+                                            class="far fa-edit"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="alert alert-info" *ngIf="usuarios.length === 0">
+                        No hay registros.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />-->
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Vehículos</h5>
+                    <table class="table table-hover" *ngIf="vehiculos.length > 0">
+                        <tbody *ngFor="let vehiculo of vehiculos">
+                            <tr>
+                                <td class="w70"><img [src]="vehiculo.img | imagen:'vehiculo'"
+                                        class="img-50 img-circle"></td>
+                                <td>{{ vehiculo.vehiculo }}</td>
+                                <td><button mdbBtn [routerLink]="['/vehiculo', vehiculo._id]" class="btn waves-effect waves-light btn-primary button-circle" mdbWavesEffect><i
+                                            class="far fa-edit"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="alert alert-info" *ngIf="vehiculos.length === 0">
+                        No hay registros.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="col-6 space">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Repuestos</h5>
+                    <table class="table table-hover" *ngIf="repuestos.length > 0">
+                        <tbody *ngFor="let repuesto of repuestos">
+                            <tr>
+                                <td class="w70"><img [src]="repuesto.img | imagen:'repuesto'"
+                                        class="img-50 img-circle"></td>
+                                <td>{{ repuesto.nombre }}</td>
+                                <td><button mdbBtn [routerLink]="['/repuesto', repuesto._id]" class="btn waves-effect waves-light btn-primary button-circle" mdbWavesEffect><i
+                                            class="far fa-edit"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="alert alert-info" *ngIf="repuestos.length === 0">
+                        No hay registros.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+</div>

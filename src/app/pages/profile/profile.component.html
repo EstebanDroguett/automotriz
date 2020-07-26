@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row animated fadeIn">
+        <div class="col-lg-7 space1">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Su Perfil</h4>
+                    <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar( f.value )" class="form p-t-20">
+                        <div class="md-form">
+                            <input mdbInput [(ngModel)]="usuario.nombre" name="nombre" type="text" class="form-control"
+                                required />
+                            <label for="nombre" class="">Nombre de Usuario</label>
+                        </div>
+                        <div class="md-form">
+                            <input mdbInput [(ngModel)]="usuario.email" [disabled]="usuario.google" name="email"
+                                type="email" class="form-control text-black-50" disabled />
+                            <label for="nombre" class="">Correo de Usuario</label>
+                        </div>
+                        <button mdbBtn type="submit" class="btn btn-success button-circle waves-effect waves-light m-r-10"><i
+                                class="far fa-save">
+                                Guardar
+                            </i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 space2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Su Fotografía </h4>
+                    <img *ngIf="!imagenTemp" [src]="usuario.img | imagen" class="img-50 img-circle">
+                    <img *ngIf="imagenTemp" [src]="imagenTemp" class="img-50 img-circle">
+                    <br />
+                    <br />
+                    <label for="file-upload" class="subir button-circle">
+                        <mdb-icon fas icon="upload"></mdb-icon> Subir archivo
+                    </label>
+                    <input id="file-upload" (change)="seleccionImage($event.target.files[0])" type="file" style='display: none;' />
+                    <div id="info"></div>
+                    <br />
+                    <br />
+                    <button (click)="cambiarImagen()" [disabled]="!imagenSubir" type="button"
+                    mdbBtn class="btn btn-success button-circle waves-effect waves-light m-r-10"><i class="far fa-save">
+                            Actualizar Foto
+                        </i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

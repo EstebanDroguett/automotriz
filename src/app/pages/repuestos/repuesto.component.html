@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row animated fadeIn">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <h4 class="box-title m-b-0">Repuesto: {{ repuesto.nombre }}</h4>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarRepuesto(f)">
+                            <div class="md-form">
+                                <input mdbInput [(ngModel)]="repuesto.nombre" name="nombre" type="text"
+                                    class="form-control" required />
+                                <label for="nombre" class="">Nombre del Repuesto</label>
+                            </div>
+                            <div class="md-form">
+                                <input mdbInput [(ngModel)]="repuesto.cantidad" name="cantidad" type="number"
+                                    class="form-control" required />
+                                <label for="cantidad" class="">Cantidad</label>
+                            </div>
+                            <div class="box">
+                                <label>Propietario</label>
+                                <select (change)="cambioVehiculo($event.target.value)" [(ngModel)]="repuesto.vehiculo"
+                                    name="vehiculo" class="form-control pointer" required>
+                                    <option value="">Selecciona Propietario</option>
+                                    <option *ngFor="let vehiculo of vehiculos" [value]="vehiculo._id">
+                                        {{ vehiculo.propietario }}
+                                    </option>
+                                </select>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                            <button mdbBtn type="submit" class="btn btn-success button-circle waves-effect waves-light m-r-10">
+                                <i class="far fa-save"></i>
+                                Guardar
+                            </button>
+                            <a mdbBtn routerLink="/repuestos" class="btn btn-light button-circle waves-effect waves-light"><mdb-icon fas icon="arrow-circle-left"></mdb-icon> Volver</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card card-body">
+                <h4 class="box-title m-b-0">Vehículo</h4>
+                <img [src]="vehiculo.img | imagen: 'vehiculo'" class="circle-img position">
+            </div>
+        </div>
+        <div class="col-md-3" *ngIf="repuesto._id">
+            <div class="card card-body">
+                <h4 class="box-title m-b-0">Repuesto</h4>
+                <img (click)="cambiarFoto()" [src]="repuesto.img | imagen:'repuesto'"
+                    class="circle-img pointer position">
+            </div>
+        </div>
+    </div>
+</div>
+<br />

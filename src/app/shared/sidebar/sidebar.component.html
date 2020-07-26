@@ -1,0 +1,95 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+        <div class="row">
+            <div class="col-sm-12 col-smd-12 col-lg-12 col-xl-12">
+                <ul class="navbar-nav">
+                    <li>
+                        <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
+                        <label class="waves-light" mdbWavesEffect for="abrir-cerrar">
+                            <mdb-icon fas icon="bars" size="2x"></mdb-icon><span class="abrir"></span><span
+                                class="cerrar animated fadeIn"></span>
+                        </label>
+                        <div id="sidebar" class="sidebar">
+                            <div>
+                                <h3 class="white-text logo">
+                                    <mdb-icon fas icon="car" class="white-text"></mdb-icon> Automotriz Demo
+                                </h3>
+                            </div>
+                            <hr class="hr-light">
+                            <div class="accordion">
+                                <div class="perfil cont-datos">
+                                    <ul class="inner-datos">
+                                        <li><a class="waves-light" mdbWavesEffect href="#"><img
+                                                    [src]="usuario.img | imagen" class="img-perfil"
+                                                    alt="user" /><strong>{{ usuario.nombre }}</strong></a>
+                                    <div class="submenus2">
+                                        <li><a class="waves-light" mdbWavesEffect routerLinkActive="active"
+                                                routerLink="/perfil" href="#">Perfil</a></li>
+                                        <li><a class="waves-light" mdbWavesEffect (click)="_usuarioService.logout()"
+                                                class="pointer">Salir</a></li>
+                                    </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+        <hr class="hr-light">
+        <div class="row">
+            <div class="col-sm-12 col-smd-12 col-lg-12 col-xl-12">
+        <div class="menus">
+            <ul class="accordion">
+                <li *ngFor="let menu of _sidebar.menu">
+                    <a class="waves-light" mdbWavesEffect>
+                        <mdb-icon fas [class]="menu.icono"></mdb-icon>
+                        <span class=""><strong>{{ menu.titulo }}</strong><span class="badge badge-light space">
+                                {{ menu.submenu.length }}</span></span>
+                    </a>
+                    <div class="submenus">
+                        <ul class="cont-datos">
+                            <li *ngFor="let submenu of menu.submenu" class="inner-datos">
+                                <a class="waves-light" mdbWavesEffect routerLinkActive="active"
+                                    [routerLink]="[ submenu.url ]">
+                                    {{ submenu.titulo }} </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+        </li>
+        </ul>
+        </div>
+        </div>
+    </mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+        <!-- Search form -->
+        <div class="form-inline waves-light white-text" mdbWavesEffect>
+            <div class="md-form my-0">
+                <input #input (keyup.enter)="buscar(input.value)" class="form-control mr-sm-2 white-text" type="text"
+                    placeholder="Buscar">
+            </div>
+        </div>
+        <li class="nav-item avatar dropdown" dropdown>
+            <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                <img [src]="usuario.img | imagen" alt="" class="img-perfil"></a>
+            <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/perfil"><img [src]="usuario.img | imagen" alt="" class="img-perfil">{{ usuario.nombre }}<p class="text-muted">{{ usuario.email }}</p></a>
+                
+                <div class="divider dropdown-divider"></div>
+                <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/perfil">Perfil</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect (click)="_usuarioService.logout()">Salir</a>
+            </div>
+        </li>
+    </ul>
+
+    <!-- Collapsible content -->
+</mdb-navbar>
+<!--/.Navbar-->

@@ -1,0 +1,14 @@
+<div class="dark-font bc-icons-2 container ajuste">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 color-title">
+            <h3>{{ titulo }}</h3>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 align-self-center">
+            <mdb-breadcrumb-item>
+                <mdb-icon fas icon="caret-right" class="mr-1 color-title"></mdb-icon><a class="color-title" [routerLink]="['/graficos']">Home</a></mdb-breadcrumb-item>
+            <mdb-breadcrumb-item class="active">
+                <mdb-icon fas icon="caret-right" class="mr-1"></mdb-icon> {{ titulo }}
+            </mdb-breadcrumb-item>
+        </div>
+    </div>
+</div>

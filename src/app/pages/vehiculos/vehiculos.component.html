@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row animated fadeIn">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="md-form">
+                        <input mdbInput #input (keyup)="buscarVehiculo(input.value)" type="text" class="form-control" />
+                        <label for="search" class="">Buscar Vehículo</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row animated fadeIn loading text-center" *ngIf="cargando">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div>
+                <strong>Cargando...</strong>
+            </div>
+        </div>
+    </div>
+    <div class="row animated fadeIn" *ngIf="!cargando">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="">Vehículos registrados <span
+                            class="badge badge-primary button-circle">{{ _vehiculoService.totalVehiculos }}</span></h4>
+                    <div class="text-right">
+                        <button mdbBtn [routerLink]="['/vehiculo', 'nuevo']" type="button"
+                            class="btn waves-effect waves-light btn-success button-circle" mdbWavesEffect>
+                            <i class="fa fa-plus"></i>
+                            Agregar Vehículo
+                        </button>
+                    </div>
+                    <br />
+                    <table class="table table-hover text-center" id="tabla">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Imagen</th>
+                                <th>Propietario</th>
+                                <th>Correo</th>
+                                <th>Vehículo</th>
+                                <th>Patente</th>
+                                <th>Color</th>
+                                <!--<th>N° de Puertas</th>-->
+                                <th>Trabajador</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let vehiculo of vehiculos; let i = index">
+                                <td>{{ i+1 }}</td>
+                                <td>
+                                    <img (click)="actualizarImagen( vehiculo )" [src]="vehiculo.img | imagen:'vehiculo'"
+                                        class="img-50 img-circle pointer">
+                                </td>
+                                <td>{{ vehiculo.propietario }}</td>
+                                <td>{{ vehiculo.correo }}</td>
+                                <td>{{ vehiculo.vehiculo }}</td>
+                                <td>{{ vehiculo.patente }}</td>
+                                <td>{{ vehiculo.color }}</td>
+                                <!--<td>{{ vehiculo.cantidad_de_puertas }}</td>-->
+                                <td>{{ vehiculo.usuario.nombre }}</td>
+                                <td>
+                                    <button mdbBtn [routerLink]="['/vehiculo', vehiculo._id]"
+                                        class="btn btn-primary button-circle" mdbWavesEffect>
+                                        <i class="far fa-edit"></i>
+                                    </button>
+                                    <button mdbBtn (click)="borrarVehiculo( vehiculo )" class="btn btn-danger button-circle" mdbWavesEffect>
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                    <button mdbBtn (click)="downloadPdf( vehiculo )" class="btn btn-light button-circle" mdbWavesEffect>
+                                        <mdb-icon far icon="file-pdf"></mdb-icon>
+                                    </button>
+                                    <button mdbBtn (click)="downloadPdfgeneral( vehiculo )" class="btn btn-light button-circle" mdbWavesEffect>
+                                        <mdb-icon fas icon="file-pdf"></mdb-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="grey lighten-5 w-100">
+                            <tr>
+                                <td colspan="4">
+                                    <button mdbBtn (click)="cambiarDesde(-5)"
+                                        class="btn waves-effect waves-light btn-light button-circle" mdbWavesEffect>
+                                        <mdb-icon fas icon="arrow-circle-left"></mdb-icon>
+                                        Anteriores
+                                    </button>
+                                    <button mdbBtn (click)="cambiarDesde(5)"
+                                        class="btn waves-effect waves-light btn-light button-circle" mdbWavesEffect>
+                                        Siguientes
+                                        <mdb-icon fas icon="arrow-circle-right"></mdb-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
