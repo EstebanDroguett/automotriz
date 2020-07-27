@@ -44,7 +44,7 @@ header,
 
 .card {
   background-color: rgba(64, 59, 201, 0.2);
-  width: 50%;
+  width: 100%;
   margin: auto;
 }
 
@@ -54,6 +54,11 @@ header,
 
 h6 {
   line-height: 1.7;
+}
+
+.center{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 //Checkbox

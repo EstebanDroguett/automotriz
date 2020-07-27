@@ -2,81 +2,86 @@
 <header>
     <!-- Full Page Intro -->
     <div class="view"
-    style="background-image: url('assets/image/automotriz.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        style="background-image: url('assets/image/automotriz.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
         <!-- Mask & flexbox options-->
         <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
             <!-- Content -->
             <div class="container">
-                <!--Form-->
-                <form ngNativeValidate [formGroup]="forma" (ngSubmit)="registrarUsuario()" id="loginform"
-                    action="index.html">
-                    <mdb-card class="wow">
-                        <mdb-card-body>
-                            <!--Header-->
-                            <div class="text-center">
-                                <h3 class="white-text">
-                                    <mdb-icon fas icon="address-card" class="white-text"></mdb-icon> Registro
-                                </h3>
-                            </div>
-                            <!--Body-->
-                            <div class="md-form">
-                                <mdb-icon fas icon="user" class="prefix white-text active"></mdb-icon>
-                                <input formControlName="nombre" type="text" name="nombre"
-                                    class="text-white form-control" mdbInput required>
-                                <label for="form2" class="text-white">Nombre</label>
-                            </div>
-                            <div class="md-form">
-                                <mdb-icon fas icon="envelope" class="prefix white-text active"></mdb-icon>
-                                <input formControlName="correo" type="email" name="email"
-                                    class="text-white form-control" mdbInput required>
-                                <label for="form2" class="text-white">Correo Electrónico</label>
-                            </div>
-                            <div class="md-form">
-                                <mdb-icon fas icon="lock-open" class="prefix text-white active"></mdb-icon>
-                                <input formControlName="password" type="password" name="password"
-                                    class="text-white form-control" mdbInput required>
-                                <label for="form4" class="text-white">Contraseña</label>
-                            </div>
-                            <div class="md-form">
-                                <mdb-icon fas icon="lock" class="prefix text-white active"></mdb-icon>
-                                <input formControlName="password2" type="password" name="password2"
-                                    class="text-white form-control" mdbInput required>
-                                <label for="form4" class="text-white">Confirmar Contraseña</label>
-                            </div>
-                            <div class="form-group text-center" *ngIf="forma.errors?.sonIguales && !forma.pristine">
-                                <p class="text-danger">
-                                    Las contraseñas deben ser iguales.
-                                </p>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <div class="text-white text-center">
-                                        <input formControlName="condiciones" name="condiciones" id="checkbox-signup"
-                                            type="checkbox">
-                                        <label for="checkbox-signup"> Estoy de acuerdo con los <a
-                                                href="#">Términos</a></label>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 center">
+                        <!--Form-->
+                        <form ngNativeValidate [formGroup]="forma" (ngSubmit)="registrarUsuario()" id="loginform"
+                            action="index.html">
+                            <mdb-card class="wow">
+                                <mdb-card-body>
+                                    <!--Header-->
+                                    <div class="text-center">
+                                        <h3 class="white-text">
+                                            <mdb-icon fas icon="address-card" class="white-text"></mdb-icon> Registro
+                                        </h3>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="text-center mt-4">
-                                <button mdbBtn color="white" [disabled]="!forma.valid" type="submit" outline="true"
-                                    mdbWavesEffect>Registrarme</button>
-                            </div>
-                            <br />
-                            <div class="text-white">
-                                <div class="text-center">
-                                    ¿Ya tienes tú cuenta? <a routerLink="/login" class="text-primary m-l-5"><b>
-                                            Ingresar aquí</b></a>
-                                </div>
-                            </div>
-                        </mdb-card-body>
-                    </mdb-card>
-                </form>
-                <!--/.Form-->
+                                    <!--Body-->
+                                    <div class="md-form">
+                                        <mdb-icon fas icon="user" class="prefix white-text active"></mdb-icon>
+                                        <input formControlName="nombre" type="text" name="nombre"
+                                            class="text-white form-control" mdbInput required>
+                                        <label for="form2" class="text-white">Nombre</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <mdb-icon fas icon="envelope" class="prefix white-text active"></mdb-icon>
+                                        <input formControlName="correo" type="email" name="email"
+                                            class="text-white form-control" mdbInput required>
+                                        <label for="form2" class="text-white">Correo Electrónico</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <mdb-icon fas icon="lock-open" class="prefix text-white active"></mdb-icon>
+                                        <input formControlName="password" type="password" name="password"
+                                            class="text-white form-control" mdbInput required>
+                                        <label for="form4" class="text-white">Contraseña</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <mdb-icon fas icon="lock" class="prefix text-white active"></mdb-icon>
+                                        <input formControlName="password2" type="password" name="password2"
+                                            class="text-white form-control" mdbInput required>
+                                        <label for="form4" class="text-white">Confirmar Contraseña</label>
+                                    </div>
+                                    <div class="form-group text-center"
+                                        *ngIf="forma.errors?.sonIguales && !forma.pristine">
+                                        <p class="text-danger">
+                                            Las contraseñas deben ser iguales.
+                                        </p>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <div class="text-white text-center">
+                                                <input formControlName="condiciones" name="condiciones"
+                                                    id="checkbox-signup" type="checkbox">
+                                                <label for="checkbox-signup"> Estoy de acuerdo con los <a
+                                                        href="#">Términos</a></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-4">
+                                        <button mdbBtn color="white" [disabled]="!forma.valid" type="submit"
+                                            outline="true" mdbWavesEffect>Registrarme</button>
+                                    </div>
+                                    <br />
+                                    <div class="text-white">
+                                        <div class="text-center">
+                                            ¿Ya tienes tú cuenta? <a routerLink="/login" class="text-primary m-l-5"><b>
+                                                    Ingresar aquí</b></a>
+                                        </div>
+                                    </div>
+                                </mdb-card-body>
+                            </mdb-card>
+                        </form>
+                        <!--/.Form-->
+                    </div>
+                    <!-- Content -->
+                </div>
+                <!-- Mask & flexbox options-->
             </div>
-            <!-- Content -->
         </div>
-        <!-- Mask & flexbox options-->
     </div>
     <!-- Full Page Intro -->
 </header>
