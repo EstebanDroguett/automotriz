@@ -5,7 +5,6 @@ import { ModalUploadService } from 'src/app/components/modal-upload/modal-upload
 import swal from 'sweetalert2';
 import * as jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable'
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-repuestos',
