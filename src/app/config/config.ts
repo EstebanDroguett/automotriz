@@ -1,1 +1,1 @@
-export const URL_SERVICIOS = 'https://automotriz-demo.herokuapp.com';
+export const URL_SERVICIOS = 'https://automotrizbackend.onrender.com';
