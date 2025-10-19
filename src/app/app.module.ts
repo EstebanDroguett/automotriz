@@ -39,7 +39,7 @@ import { PagesComponent } from './pages/pages.component';
     ReactiveFormsModule,
     ServiceModule
   ],
-  schemas: [ NO_ERRORS_SCHEMA ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

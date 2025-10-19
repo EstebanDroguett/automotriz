@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
@@ -10,7 +10,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { DropdownModule, IconsModule, MDBBootstrapModule, NavbarModule, WavesModule } from 'angular-bootstrap-md';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -25,7 +25,11 @@ import { FooterComponent } from './footer/footer.component';
         RouterModule,
         CommonModule,
         PipesModule,
-        MDBBootstrapModule.forRoot()
+        MDBBootstrapModule.forRoot(),
+        IconsModule,
+        WavesModule,
+        DropdownModule,
+        NavbarModule
     ],
     exports: [
         SidebarComponent,
@@ -33,7 +37,8 @@ import { FooterComponent } from './footer/footer.component';
         NopagefoundComponent,
         FooterComponent,
         ModalUploadComponent
-    ]
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 
 export class SharedModule { }
